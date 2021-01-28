@@ -15,7 +15,7 @@ int main() // program execution starting from the main function ; there must be 
     // >> extraction operator is used to read data from the stream, like reading user input from cin stream and putting the data inside our variable
     // the insertion and extraction operator are used according to the flow of data/program
 
-    std::cout << "Amazing! That's my favourite number too!" << std::endl;
+    std::cout << "Amazing! " << fav_num << " is my favourite number too!" << std::endl;
     // endl is used to endline and bring cursor to the starting of next line
 
     return 0; // returning 0 in order to ensure that the program ran successfully
