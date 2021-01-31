@@ -145,4 +145,5 @@ int main()
 // now if we enter 10.5 output will be:
 // Enter integer value: 10.5
 //Enter double value: Integer is 10
+
 // Double is 0.5

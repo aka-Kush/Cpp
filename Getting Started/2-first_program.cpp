@@ -29,6 +29,6 @@ int main()
     int fav__num;
     cout << "Enter your favourite number: ";
     cin >> fav__num;
-    cout << "Amazing! " << fav__num << " is my favourite number too" << endl;
+    cout << "Amazing! " << fav__num << " is my favourite number too." << endl;
     return 0;
 }
