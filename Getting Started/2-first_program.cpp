@@ -20,3 +20,15 @@ int main() // program execution starting from the main function ; there must be 
 
     return 0; // returning 0 in order to ensure that the program ran successfully
 }
+
+// another method
+#include <iostream>
+using namespace std;
+int main()
+{
+    int fav__num;
+    cout << "Enter your favourite number: ";
+    cin >> fav__num;
+    cout << "Amazing! " << fav__num << " is my favourite number too" << endl;
+    return 0;
+}
