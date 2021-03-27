@@ -1,3 +1,4 @@
+//First program
 #include <iostream>
 using namespace std;
 
@@ -12,11 +13,11 @@ int main()
     return 0;
 }
 
+//program to perform division
 #include <iostream>
 using namespace std;
 //quotient = dividend/divisor
 //remainder = dividend%divisor
-
 int main()
 {
     int quotient, dividend, divisor, remainder;
@@ -29,9 +30,9 @@ int main()
     return 0;
 }
 
+//program to swap two numbers
 #include <iostream>
 using namespace std;
-
 int main()
 {
     int a, b, temp;
@@ -45,6 +46,7 @@ int main()
     return 0;
 }
 
+//how to append/combine strings
 #include <iostream>
 using namespace std;
 int main()
@@ -84,6 +86,7 @@ int main()
     return 0;
 }
 
+//accessing variables using user-defined namespace
 #include <iostream>
 using namespace std;
 namespace nspace
@@ -98,6 +101,7 @@ int main()
     return 0;
 }
 
+//calling function using namespace
 #include <iostream>
 using namespace std;
 namespace hello1
@@ -163,6 +167,7 @@ int main()
     return 0;
 }
 
+//program to display name and id using class
 #include <iostream>
 using namespace std;
 class student
@@ -216,6 +221,7 @@ int main()
     return 0;
 }
 
+//private data member error
 #include <iostream>
 using namespace std;
 class test
@@ -228,8 +234,7 @@ int main()
     cout << t.x; //error as it is private by default
 }
 
-/***************WAP to calculate area and volume of a room using class and objet***************/
-
+//WAP to calculate area and volume of a room using class and object
 #include <iostream>
 using namespace std;
 class volume
@@ -253,7 +258,7 @@ int main()
     return 0;
 }
 
-/***************WAP to access student info (UID, NAME, PERCENTAGE, GRADE) using class and objet***************/
+//WAP to access student info (UID, NAME, PERCENTAGE, GRADE) using class and object
 
 #include <iostream>
 using namespace std;
@@ -286,7 +291,7 @@ int main()
     s2.display();
 }
 
-/***************WAP to calculate average of marks of 5 subjects of a student***************/
+//WAP to calculate average of marks of 5 subjects of a student
 
 #include <iostream>
 using namespace std;
@@ -321,6 +326,7 @@ int main()
     //return 0;
 }
 
+//private data member error - example
 #include <iostream>
 using namespace std;
 class abc
@@ -343,6 +349,7 @@ int main()
     return 0;
 }
 
+//way to access private data member
 #include <iostream>
 using namespace std;
 class abc
@@ -364,6 +371,7 @@ int main()
     return 0;
 }
 
+//fibonacci series - basic
 #include <iostream>
 using namespace std;
 class fibonacci
@@ -476,13 +484,11 @@ int main()
     cout << abc.area();
 }
 
-/****************************************************************************************************************************************************
 //Practical 2.2: 1. Create a class called employee with the following details as variables within it.(by defining member function outside the class)
 //     1. Name of the employee (string)
 //     2. Age (int)
 //     3. Designation (string)
 //     4. Salary (double)
-****************************************************************************************************************************************************/
 #include <iostream>
 using namespace std;
 class employee
@@ -496,7 +502,6 @@ public:
     void insert();
     void display();
 };
-
 void employee::insert()
 {
     cout << "Enter your name: ";
@@ -512,7 +517,6 @@ void employee::display()
 {
     cout << "\nName : " << name << "\nAge : " << age << "\nDesignation : " << designation << "\nSalary : " << salary << endl;
 }
-
 int main()
 {
     int n;
@@ -705,21 +709,7 @@ int main()
     return 0;
 }
 
-#include <iostream>
-using namespace std;
-void inline func1(char b[10])
-{
-    printf("%c\n", b[2]);
-}
-int main()
-{
-    func1("hello");
-    return 0;
-}
-
-/*********************************************************************************************************************
-WAP to input a matrix of dimension m*n. If base address is 1000. Find the address of (m-1, n-1) element of the matrix.
-/********************************************************************************************************************/
+//WAP to input a matrix of dimension m*n. If base address is 1000. Find the address of (m-1, n-1) element of the matrix.
 #include <iostream>
 using namespace std;
 int main()
@@ -747,9 +737,7 @@ int main()
     return 0;
 }
 
-/*********************************************************************************************************************
-Write a program to illustrate the use of scope resolution operator. Display the various values of the same variables declared at different scope levels.
-********************************************************************************************************************/
+//Write a program to illustrate the use of scope resolution operator. Display the various values of the same variables declared at different scope levels.
 #include <iostream>
 using namespace std;
 int var = 10;
@@ -901,23 +889,6 @@ int main()
 
 //* Constructors
 // 1. Default => Name of constructor and class should be same ; don't mention data type ; we can't pass paramteres
-#include <iostream>
-using namespace std;
-class cube
-{
-public:
-    int side;
-    cube()
-    {
-        side = 10;
-    }
-};
-int main()
-{
-    cube c;
-    cout << c.side << endl;
-    return 0;
-}
 
 // 2. Paramterized Constructor => Name of constructor and class should be same ; don't mention data type ; we can pass paramteres
 #include <iostream>
@@ -1079,9 +1050,7 @@ int main()
     return 0;
 }
 
-/*************************************************************************************************************
-Write a program to find the largest& smallest of three numbers. (Use inline function MAX and MIN)
-**************************************************************************************************************/
+//Write a program to find the largest& smallest of three numbers. (Use inline function MAX and MIN)
 #include <iostream>
 using namespace std;
 #define MAX(a, b, c) (a > b && a > c ? a : (b > c ? b : c))
@@ -1261,7 +1230,8 @@ int main()
     cout << "Private: " << obj.getPvt() << endl;
 }
 
-/*********************************************/
+//WAP to take input of UID and marks of a student and display it using single level inheritance
+
 //hard coded
 #include <iostream>
 using namespace std;
@@ -1328,5 +1298,349 @@ int main()
     s1.putNumber();
     s1.getMarks();
     s1.putMarks();
+    return 0;
+}
+
+// Multilevel Inheritance
+#include <iostream>
+using namespace std;
+class parent //single base class
+{
+public:
+    int x;
+    void get_x()
+    {
+        cout << "\nEnter value of x: ";
+        cin >> x;
+    };
+};
+class child_1 : public parent //first child/derived class
+{
+public:
+    int y;
+    void get_y()
+    {
+        cout << "\nEnter value of y: ";
+        cin >> y;
+    };
+};
+class child_2 : public child_1 //second child/derived class
+{
+private:
+    int z;
+
+public:
+    void get_z()
+    {
+        cout << "\nEnter value of z: ";
+        cin >> z;
+    };
+    void product()
+    {
+        cout << "\nProduct is " << x * y * z << endl;
+    }
+};
+int main()
+{
+    child_2 obj;
+    obj.get_x();
+    obj.get_y();
+    obj.get_z();
+    obj.product();
+    return 0;
+}
+
+// Multiple Inheritance
+#include <iostream>
+using namespace std;
+class A
+{
+public:
+    A() { cout << "WORLD" << endl; }
+};
+class B
+{
+public:
+    B() { cout << "HELLO" << endl; }
+};
+class C : public B, public A // Note the order
+{
+public:
+    C() { cout << "!!!" << endl; }
+};
+int main()
+{
+    C c;
+    return 0;
+}
+
+//example
+#include <iostream>
+using namespace std;
+class student
+{
+private:
+    int uid;
+    string name;
+
+public:
+    void getinfo()
+    {
+        cout << "Enter your name : ";
+        cin >> name;
+        cout << "Enter your UID : ";
+        cin >> uid;
+    };
+    void putinfo()
+    {
+        cout << "Name = " << name << endl;
+        cout << "UID = " << uid << endl;
+    };
+};
+class marks
+{
+protected:
+    int m1, m2, m3;
+
+public:
+    void get_marks()
+    {
+        cout << "Enter marks for first subject : ";
+        cin >> m1;
+        cout << "Enter marks for second subject : ";
+        cin >> m2;
+        cout << "Enter marks for third subject : ";
+        cin >> m3;
+    };
+};
+class result : public student, public marks
+{
+public:
+    int sum = m1 + m2 + m3;
+    float average = sum / 3;
+    void total()
+    {
+        cout << "Total marks = " << sum << endl;
+        cout << "Average marks = " << average << endl;
+    }
+};
+int main()
+{
+    result obj;
+    obj.getinfo();
+    obj.putinfo();
+    obj.get_marks();
+    obj.total();
+    return 0;
+}
+
+//Hierarichal Inheritance
+#include <iostream>
+using namespace std;
+class A
+{
+public:
+    int x, y;
+    void getdata()
+    {
+        cout << "Enter value of X and Y : ";
+        cin >> x >> y;
+    };
+};
+class B : public A
+{
+public:
+    void product()
+    {
+        cout << "Product is " << x * y << endl;
+    };
+};
+class C : public A
+{
+public:
+    void sum()
+    {
+        cout << "Sum is " << x + y << endl;
+    };
+};
+int main()
+{
+    C c;
+    B b;
+    b.getdata();
+    b.product();
+    c.getdata();
+    c.sum();
+    return 0;
+}
+
+//Hybrid Inheritance   -> Combination of Hierarichal and Multiple Inheritance
+/* 
+* The problem with Hybrid Inheritance is it will throw an error in the below example as:
+* D is inherited from B and C which are further inhertied from parent class A, therefore D gets 2 copies of A which causes ambiguity 
+* To get rid of this problem we will use virtual base class A, using it B and C will not have different copies of A and further D will also have only 1 copy of A
+*/
+
+//Example causing Ambiguity
+#include <iostream>
+using namespace std;
+class A
+{
+protected:
+    int a;
+
+public:
+    void get_a()
+    {
+        cout << "Enter value of a = ";
+        cin >> a;
+    }
+};
+class B : public A
+{
+protected:
+    int b;
+
+public:
+    void get_b()
+    {
+        cout << "Enter value of b = ";
+        cin >> b;
+    };
+};
+class C : public A
+{
+protected:
+    int c;
+
+public:
+    void get_c()
+    {
+        cout << "Enter value of c = ";
+        cin >> c;
+    };
+};
+class D : public B, public C
+{
+protected:
+    int d;
+
+public:
+    void mul()
+    {
+        get_a();
+        get_b();
+        get_c();
+        cout << "Product = " << a * b * c << endl;
+    }
+};
+int main()
+{
+    D d;
+    d.mul();
+    return 0;
+}
+
+//Example of virtual base class => no Ambiguity
+#include <iostream>
+using namespace std;
+class A
+{
+protected:
+    int a;
+
+public:
+    void get_a()
+    {
+        cout << "Enter value of a = ";
+        cin >> a;
+    }
+};
+class B : public virtual A
+{
+protected:
+    int b;
+
+public:
+    void get_b()
+    {
+        cout << "Enter value of b = ";
+        cin >> b;
+    };
+};
+class C : virtual public A
+{
+protected:
+    int c;
+
+public:
+    void get_c()
+    {
+        cout << "Enter value of c = ";
+        cin >> c;
+    };
+};
+class D : public B, public C
+{
+protected:
+    int d;
+
+public:
+    void mul()
+    {
+        get_a();
+        get_b();
+        get_c();
+        cout << "Product = " << a * b * c << endl;
+    }
+};
+int main()
+{
+    D d;
+    d.mul();
+    return 0;
+}
+
+//LAB MST PROBLEM STATEMENT
+//Create a class ITEM. Create function getdata() and putdata() to take user input of item number and price and printing it to screen
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class ITEM
+{
+    int item_no;
+    float price;
+
+public:
+    void getdata()
+    {
+        cout << "Enter item number : ";
+        cin >> item_no;
+        cout << "Enter the price of item number " << item_no << " : ";
+        cin >> price;
+    }
+    void putdata()
+    {
+        cout << setw(6) << item_no << setw(15) << price << endl;
+    }
+};
+
+int main()
+{
+    ITEM obj[5];
+    int n;
+    cout << "Shivansh Kush / 20BCS4505";
+    cout << "\nEnter total number of items = ";
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        obj[i].getdata();
+    }
+    cout << "ITEM Number" << setw(10) << "PRICE" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        obj[i].putdata();
+    }
     return 0;
 }
