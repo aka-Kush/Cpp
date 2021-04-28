@@ -259,7 +259,6 @@ int main()
 }
 
 //WAP to access student info (UID, NAME, PERCENTAGE, GRADE) using class and object
-
 #include <iostream>
 using namespace std;
 class student
@@ -292,7 +291,6 @@ int main()
 }
 
 //WAP to calculate average of marks of 5 subjects of a student
-
 #include <iostream>
 using namespace std;
 int main()
@@ -397,7 +395,6 @@ public:
             next = first + second;
             first = second;
             second = next;
-
             cout << next << ", ";
         }
     }
@@ -619,7 +616,7 @@ int main()
     return 0;
 }
 
-//function inside clas is inline by default
+//function inside class is inline by default
 #include <iostream>
 using namespace std;
 class S
@@ -1057,7 +1054,7 @@ using namespace std;
 #define MIN(a, b, c) (a < b && a < c ? a : (b < c ? b : c))
 int main()
 {
-    cout << "NAME – VIPUL DHIMAN / UID - 20BCS5177" << endl;
+    cout << "NAME – SHIVANSH KUSH / UID - 20BCS4505" << endl;
     int x, y, z, large, small;
     //printf("Enter 3 numbers: ");
     cout << "Enter 3 numbers: ";
@@ -1072,7 +1069,7 @@ int main()
     return 0;
 }
 
-//inheritance
+//* inheritance
 /* syntax ->  class sub_class : access_mode base_class { code here } */
 //sub_class can't access private data members of base class
 #include <iostream>
@@ -1231,7 +1228,6 @@ int main()
 }
 
 //WAP to take input of UID and marks of a student and display it using single level inheritance
-
 //hard coded
 #include <iostream>
 using namespace std;
@@ -1606,7 +1602,6 @@ int main()
 #include <iostream>
 #include <iomanip>
 using namespace std;
-
 class ITEM
 {
     int item_no;
@@ -1625,7 +1620,6 @@ public:
         cout << setw(6) << item_no << setw(15) << price << endl;
     }
 };
-
 int main()
 {
     ITEM obj[5];
@@ -1642,5 +1636,828 @@ int main()
     {
         obj[i].putdata();
     }
+    return 0;
+}
+
+//Compile time polymorphism -> early binding or static binding
+//In Early Binding, compiler directly associate an address to the function call
+//* 1) function overloading
+#include <iostream>
+using namespace std;
+void abc() { cout << "Hello" << endl; };
+void abc(int a) { cout << "a = " << a << endl; };
+void abc(char b) { cout << "b = " << b << endl; };
+int main()
+{ //same function name but different arguments
+    abc();
+    abc(2);
+    abc('b');
+    //abc(2, 'a'); error, as there is no function that accepts 2 arguments
+    return 0;
+}
+
+//function overload ambiguity -> When the compiler is unable to decide which function it should invoke first among the overloaded functions
+//* 1.1) type-conversion
+#include <iostream>
+using namespace std;
+void function(float x) { cout << "Value of x is " << x << endl; }
+void function(int y) { cout << "Value of y is " << y << endl; }
+int main()
+{
+    function(4);
+    function(4.5); //ambiguity because by default C++ treats float as double which means it is an example of type-conversion
+    return 0;
+}
+
+//correct way for above example
+#include <iostream>
+using namespace std;
+void function(double x) { cout << "Value of x is " << x << endl; }
+void function(int y) { cout << "Value of y is " << y << endl; }
+int main()
+{
+    function(4);
+    function(4.5); //ambiguity because by default C++ treats float as double which means it is an example of type-conversion
+    return 0;
+}
+
+//* 2.1) Default arguments
+#include <iostream>
+using namespace std;
+void function(int x) { cout << "x = " << x << endl; }
+void function(int y, int z = 10)
+{
+    cout << "y = " << y << endl;
+    cout << "z = " << z << endl;
+}
+int main()
+{
+    //function(10); error, it is ambiguous as both function can work with just one argument because second argument has already been initialized
+    function(10, 20); //now second function will be invoked and value of z will be changed
+    return 0;
+}
+
+//* 3.1) Function with pass by reference -> passing address instead of value
+#include <iostream>
+using namespace std;
+// void function(int x);
+// void function(int &);
+void function(int x) { cout << "x = " << x << endl; }
+void function(int &y) { cout << "y = " << y << endl; }
+int main()
+{ //ambiguous as logically both functions are same ; first accepts value, second accepts reference
+    int a = 10;
+    function(a);
+    return 0;
+}
+
+//WAP to calculate cube of an integer and double variable using function overloading
+#include <iostream>
+using namespace std;
+void cube(int x) { cout << "cube of " << x << " = " << x * x * x << endl; }
+void cube(double y) { cout << "cube of " << y << " = " << y * y * y << endl; }
+int main()
+{
+    cube(3);
+    cube(3.5);
+    return 0;
+}
+
+//WAP to calculate cube of an integer and float variable using function overloading -> hard coded
+#include <iostream>
+using namespace std;
+void cube(float);
+void cube(int);
+
+void cube(float a) { cout << a * a * a << endl; }
+void cube(int b) { cout << b * b * b << endl; }
+
+int main()
+{ //f is used to avoid ambiguity because of type-conversion
+    cube(3);
+    cube(3.5f); //using suffix f to tell compiler that it is a floating point value
+    return 0;
+}
+
+//WAP to calculate cube of an integer and float variable using function overloading -> user input
+#include <iostream>
+using namespace std;
+int cube(int num) { return num * num * num; }
+float cube(float num) { return num * num * num; }
+int main()
+{
+    int x;
+    float y;
+    cout << "Enter a number to find its cube = ";
+    cin >> x;
+    cout << "The cube of the number " << x << " is " << cube(x) << endl;
+
+    cout << "Enter a number to find its cube = ";
+    cin >> y;
+    cout << "The cube of the number " << y << " is " << cube(y) << endl;
+    return 0;
+}
+
+//WAP to calculate cube of an integer and float variable using function overloading and classes -> hierarichal inheritance
+#include <iostream>
+using namespace std;
+class grandparent
+{
+public:
+    int x;
+    float y;
+
+    int cube(int num) { return num * num * num; }
+    float cube(float num) { return num * num * num; }
+};
+class parent1 : public grandparent
+{
+public:
+    void get1()
+    {
+        cout << "Enter a number to find its cube = ";
+        cin >> x;
+    };
+    void put1()
+    {
+        cout << "The cube of the number " << x << " is " << cube(x) << endl;
+    };
+};
+class parent2 : public grandparent
+{
+public:
+    void get2()
+    {
+        cout << "Enter a number to find its cube = ";
+        cin >> y;
+    };
+    void put2()
+    {
+        cout << "The cube of the number " << y << " is " << cube(y) << endl;
+    };
+};
+int main()
+{
+    parent1 child1;
+    parent2 child2;
+    child1.get1();
+    child1.put1();
+    child2.get2();
+    child2.put2();
+    return 0;
+}
+
+//* 2) Operator overloading
+//* 2.1) Unary Operator
+#include <iostream>
+using namespace std;
+class IncreDecre
+{
+private:
+    int a, b;
+
+public:
+    void accept()
+    {
+        cout << "Enter two numbers : ";
+        cin >> a >> b;
+    };
+    //syntax for operator loading
+    void operator--() //overloading Unary Decrement
+    {
+        a--;
+        b--;
+    };
+    void operator++() //overloading Unary Increment
+    {
+
+        a++;
+        b++;
+    };
+    void display()
+    {
+        cout << "a = " << a << endl;
+        cout << "b = " << b << endl;
+    };
+};
+int main()
+{
+    IncreDecre id;
+    id.accept();
+    --id;
+    cout << "\nAfter Decrementing : ";
+    id.display();
+    ++id;
+    ++id;
+    cout << "\nAfter Incrementing : ";
+    id.display();
+    return 0;
+}
+
+//for prefix argument
+#include <iostream>
+using namespace std;
+class count
+{
+private:
+    int value;
+
+public:
+    count() { value = 10; } //default constructor
+    void operator++() { ++value; }
+    void operator--() { --value; }
+    void display() { cout << "Count value is: " << value << endl; }
+};
+int main()
+{
+    count obj;
+    ++obj;         //calling operator function
+    obj.display(); //calling member function
+    --obj;
+    obj.display();
+    return 0;
+}
+
+//for postfix argument
+//syntax -> void operator operator_symbol (int) ; here int is a dummy argument
+#include <iostream>
+using namespace std;
+class count
+{
+private:
+    int value;
+
+public:
+    count() { value = 10; } //default constructor
+    void operator++(int) { ++value; }
+    void operator--(int) { --value; }
+    void display() { cout << "Count value is: " << value << endl; }
+};
+int main()
+{
+    count obj;
+    obj++;         //calling operator function
+    obj.display(); //calling member function
+    obj--;
+    obj.display();
+    return 0;
+}
+
+//example : generating a complex equation using operator overloading
+#include <iostream>
+using namespace std;
+class complex
+{
+private:
+    int a, b, i;
+
+public:
+    void getvalue()
+    {
+        cout << "Enter two numbers : ";
+        cin >> a >> b;
+    }
+    void operator++()
+    {
+        a = ++a;
+        b = ++b;
+    }
+    void operator--()
+    {
+        a = --a;
+        b = --b;
+    }
+    void display() { cout << a << "+\t" << b << 'i' << endl; }
+};
+int main()
+{
+    complex obj;
+    obj.getvalue();
+    ++obj;         //calling operator function
+    obj.display(); //calling member function
+    --obj;
+    obj.display();
+    return 0;
+}
+
+//* 2.2 Binary Operator
+#include <iostream>
+using namespace std;
+class A
+{
+private:
+    int x;
+
+public:
+    A() //default constructor
+    {
+
+    };
+    A(int i) //paramterized constructor
+    {
+        x = i;
+    };
+    //binary operator overloading accepts object as argument
+    void operator+(A); //Declaration of operator overloading function
+};
+//syntax -> return_type class_name :: operator + (object_name)
+void A ::operator+(A a) //definition of operator overloading function
+{
+    int m = x + a.x; //7+10
+    cout << "Addition of a and b = " << m << endl;
+};
+int main()
+{
+    A a(7);
+    A b(10);
+    a + b; //calling the function
+    return 0;
+}
+
+//example of Binary Operator overloading
+#include <iostream>
+using namespace std;
+class Distance
+{
+public:
+    int feet, inch;
+    Distance()
+    {
+        feet = 0;
+        inch = 0;
+    };
+    Distance(int f, int i)
+    {
+        feet = f; //8
+        inch = i; //9
+    };
+    Distance operator+(Distance d2)
+    {
+        Distance d3;
+        d3.feet = feet + d2.feet;
+        d3.inch = inch + d2.inch;
+        return d3;
+    };
+};
+int main()
+{
+    Distance d1(8, 9);
+    Distance d2(10, 2);
+    Distance d3;
+    d3 = d1 + d2;
+    cout << "\nTotal feet and inches = " << d3.feet << "'" << d3.inch << endl;
+    return 0;
+}
+
+//performing complex calculation using binary operator overloading
+#include <iostream>
+using namespace std;
+class complex
+{
+private:
+    int a, b;
+
+public:
+    void getvalue()
+    {
+        cout << "Enter the value of Complex numbers a and b : ";
+        cin >> a >> b;
+    };
+    complex operator+(complex obj)
+    {
+        complex t;
+        t.a = a + obj.a;
+        t.b = b + obj.b;
+        return (t);
+    };
+    complex operator-(complex obj)
+    {
+        complex t;
+        t.a = a - obj.a;
+        t.b = b - obj.b;
+        return (t);
+    };
+    void display()
+    {
+        cout << a << " + " << b << "i" << endl;
+    };
+};
+int main()
+{
+    complex obj1, obj2, result, result1;
+    obj1.getvalue();
+    obj2.getvalue();
+    result = obj1 + obj2;
+    result1 = obj1 - obj2;
+    cout << "Input values : " << endl;
+    obj1.display();
+    obj2.display();
+    cout << "Result : " << endl;
+    result.display();
+    result1.display();
+    return 0;
+}
+
+//* 2.3 Binary operator overloading using friend function
+#include <iostream>
+using namespace std;
+class B;
+class A
+{
+private:
+    int a;
+
+public:
+    void get_a()
+    {
+        cout << "Enter value of a: ";
+        cin >> a;
+    };
+    friend void operator>(A, B); //declaring friend operator function
+};
+class B
+{
+private:
+    int b;
+
+public:
+    void get_b()
+    {
+        cout << "Enter value of b: ";
+        cin >> b;
+    };
+    friend void operator>(A, B);
+};
+void operator>(A obj1, B obj2)
+{
+    obj1.a > obj2.b ? cout << "\na is greater number" << endl : cout << "\nb is greater number" << endl;
+};
+int main()
+{
+    A obj1;
+    B obj2;
+    obj1.get_a();
+    obj2.get_b();
+    obj1 > obj2;
+    return 0;
+}
+
+//Binary operator overloading using friend function -> using 2 objects of same class
+#include <iostream>
+using namespace std;
+class A
+{
+private:
+    int a, b;
+
+public:
+    void get_a()
+    {
+        cout << "Enter value of a: ";
+        cin >> a;
+    };
+    void get_b()
+    {
+        cout << "Enter value of b: ";
+        cin >> b;
+    };
+    friend void operator>(A obj1, A obj2);
+};
+void operator>(A obj1, A obj2)
+{
+    obj1.a > obj2.b ? cout << "\na is greater number" << endl : cout << "\nb is greater number" << endl;
+};
+int main()
+{
+    A obj1, obj2;
+    obj1.get_a();
+    obj2.get_b();
+    obj1 > obj2;
+    return 0;
+}
+
+//example
+#include <iostream>
+using namespace std;
+class Distance
+{
+public:
+    int feet, inch; //Member Object
+    Distance()      //No Parameter Constructor
+    {
+        feet = 0;
+        inch = 0;
+    }
+
+    //Constructor to initialize the object's value
+    Distance(int f, int i) //Parametrized Constructor
+    {
+        feet = f;
+        inch = i;
+    }
+    friend Distance operator+(Distance &, Distance &); //Declaring friend function using friend keyword
+};
+Distance operator+(Distance &d1, Distance &d2) //Implementing friend function with two parameters
+{
+    Distance d3;                 //Create an object to return
+    d3.feet = d1.feet + d2.feet; //Perform addition of feet and inches
+    d3.inch = d1.inch + d2.inch;
+    return d3; //Return the resulting object
+}
+int main()
+{
+    Distance d1(8, 9);                                              //Declaring and Initializing first object
+    Distance d2(10, 2);                                             //Declaring and Initializing second object
+    Distance d3;                                                    //Declaring third object
+    d3 = d1 + d2;                                                   //Use overloaded operator
+    cout << "\nTotal Feet & Inches: " << d3.feet << "'" << d3.inch; //Display the result
+    return 0;
+}
+
+/*
+* "this" pointer is used when:
+* 1) local variable’s name is same as member’s name
+* 2) to return reference to the calling object
+*/
+
+//1.1)
+#include <iostream>
+using namespace std;
+
+/* local variable is same as a member's name */
+class Test
+{
+private:
+    int x;
+
+public:
+    void setX(int x)
+    {
+        // The 'this' pointer is used to retrieve the object's x
+        // hidden by the local variable 'x'
+        this->x = x;
+    }
+    void print() { cout << "x = " << x << endl; }
+};
+
+int main()
+{
+    Test obj;
+    int x = 20;
+    obj.setX(x);
+    obj.print();
+    return 0;
+}
+
+//1.2)
+#include <iostream>
+using namespace std;
+class demo
+{
+private:
+    int num;
+    char ch;
+
+public:
+    void set_values(int num, char ch)
+    {                    // '->' is known as member access operator
+        this->num = num; //alternative: (*this).num = num;
+        this->ch = ch;   //alternative: (*this).ch = ch;
+    }
+    void display_values()
+    {
+        cout << num << endl;
+        cout << ch << endl;
+    }
+};
+int main()
+{
+    demo obj;
+    obj.set_values(100, 'A');
+    obj.display_values();
+    return 0;
+}
+
+//2)
+#include <iostream>
+using namespace std;
+class test
+{
+    int a, b;
+
+public:
+    void show()
+    {
+        a = 10;
+        b = 20;
+        cout << "Object's address : " << this << endl;
+        cout << "a = " << this->a << endl;
+        cout << "b = " << this->b << endl;
+    }
+};
+
+int main()
+{
+    test t;
+    t.show();
+    return 0;
+}
+
+//example of pointers
+#include <iostream>
+using namespace std;
+class Box
+{
+
+public:
+    Box(double l = 2.0, double b = 2.0, double h = 2.0)
+    { // Constructor definition
+        cout << "Constructor called." << endl;
+        length = l;
+        breadth = b;
+        height = h;
+    }
+    double Volume()
+    {
+        return length * breadth * height;
+    }
+
+private:
+    double length;  // Length of a box
+    double breadth; // Breadth of a box
+    double height;  // Height of a box
+};
+int main()
+{
+    Box Box1(3.3, 1.2, 1.5); // Declare box1
+    Box Box2(8.5, 6.0, 2.0); // Declare box2
+    Box *ptrBox;             // Declare pointer to a class.
+
+    ptrBox = &Box1;                                         // Save the address of first object
+    cout << "Volume of Box1: " << ptrBox->Volume() << endl; // Now try to access a member using member access operator
+
+    ptrBox = &Box2;                                         // Save the address of second object
+    cout << "Volume of Box2: " << ptrBox->Volume() << endl; // Now try to access a member using member access operator
+
+    return 0;
+}
+
+//* Dynamic Memory Allocation
+//Dynamically allocated memory is allocated on Heap and non-static and local variables get memory allocated on Stack
+//new and delete operators perform the task of allocating and freeing the memory
+#include <iostream>
+using namespace std;
+int main()
+{
+    int *ptr; //declaration
+    float *ptr1;
+
+    ptr = new int;
+    ptr1 = new float; //initialization
+
+    *ptr = 100;
+    *ptr1 = 45.6;
+
+    cout << "Address is : " << ptr << endl;
+    cout << "Stored value : " << *ptr << endl;
+    cout << "Address of ptr1 : " << ptr1 << endl;
+    cout << "Stored value on ptr1 : " << *ptr1 << endl;
+
+    delete ptr;
+    delete ptr1;
+
+    cout << *ptr << endl;
+    cout << ptr << endl; //Address is not deleted
+
+    ptr = nullptr;
+    cout << ptr << endl;
+}
+
+/*
+* C++ Exceptions
+* Exception handling in C++ consist of three keywords: try, throw and catch:
+* The 'try' statement allows you to define a block of code to be tested for errors while it is being executed.
+* The 'throw' keyword throws an exception when a problem is detected, which lets us create a custom error.
+* The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+*/
+
+//try-throw-catch (Exception Handler)
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Welcome!" << endl;
+
+    try
+    {
+        throw 10;
+        cout << "In try block" << endl;
+    } /*Exception Thrown*/
+    catch (int exp)
+    {
+        cout << "Exception encountered\n"
+             << exp << endl;
+    }
+    /* or catch(int) {cout << "Exception Encountered" << endl;} */
+    cout << "Program ends here" << endl;
+    return 0;
+}
+
+//Example 1
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cout << "Welcome!" << endl;
+    try
+    {
+        cout << "Enter the number: ";
+        cin >> a;
+        if (a == 2)
+        {
+            throw 2;
+            cout << "In try block" << endl;
+        }
+    }
+    catch (int exp)
+    {
+        cout << "Exception encountered\n"
+             << exp << endl;
+    }
+    cout << "Program ends here" << endl;
+    return 0;
+}
+//Example 2
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num, den, result, a = 1;
+    try
+    {
+        cout << "Enter numerator = ";
+        cin >> num;
+        cout << "Enter denominator = ";
+        cin >> den;
+        if (den == 0)
+        {
+            throw a;
+        }
+        else
+        {
+            result = num / den;
+            cout << "Result = " << result << endl;
+        }
+    }
+    catch (int)
+    {
+        cout << "Exception occured due to division by 0" << endl;
+    }
+    cout << "Program has ended here" << endl;
+}
+
+//error cases
+#include <iostream>
+using namespace std;
+int main()
+{
+    try
+    {
+        throw 20; /*int type*/
+        cout << "In try block" << endl;
+    }
+    cout << "Hello" << endl; /* error as there should always be a catch after try */
+    catch (double /*error as throw was int type*/)
+    {
+        cout << "Exception encountered" << exp << endl;
+    }
+    cout << "Program ends here" << endl;
+    return 0;
+}
+
+//all catch or default catch
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cout << "Welcome!" << endl;
+    try
+    {
+        cout << "Enter the number: ";
+        cin >> a;
+        if (a == 1)
+            throw 2;
+        if (a == 2)
+            throw "hello";
+        if (a == 3)
+            throw 'A';
+    }
+    catch (...) /*It will catch any type of thrown exception*/
+    {
+        cout << "Exception encountered" << endl;
+    }
+    cout << "-- Program ends here --" << endl;
     return 0;
 }
