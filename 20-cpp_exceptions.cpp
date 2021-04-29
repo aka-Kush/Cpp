@@ -20,8 +20,7 @@ int main()
     } /*Exception Thrown*/
     catch (int exp)
     {
-        cout << "Exception encountered\n"
-             << exp << endl;
+        cout << "Exception encountered" << exp << endl;
     }
     /* or catch(int) {cout << "Exception Encountered" << endl;} */
     cout << "Program ends here" << endl;
