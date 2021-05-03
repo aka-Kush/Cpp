@@ -178,3 +178,52 @@ int main()
     delete[] obj;
     return 0;
 }
+
+//Problem statement 4
+//WAP to calculate sum of marks of n students of a class inputted via dynamic memory allocation.
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+    cout << "NAME – SHIVANSH KUSH / UID - 20BCS4505" << endl;
+    int sum = 0, N;
+    cout << "Enter number of students in Class:\n";
+    cin >> N;
+    int *a = new int[N];
+    cout << "\nEnter " << N << " students Marks: " << endl;
+    for (int i = 0; i < N; i++)
+        cin >> a[i];
+    cout << "Entered marks are:" << endl;
+    for (int i = 0; i < N; i++)
+    {
+        cout << a[i] << endl;
+        sum = sum + a[i]; // sum += a[i];
+    }
+    cout << "Total Sum: " << sum;
+    delete (a);
+    getch();
+}
+
+//Problem statement 5
+//WAP to allocate memory dynamically for an object of a given class using class’s constructor
+#include <iostream>
+using namespace std;
+class stud
+{
+public:
+    stud()
+    {
+        cout << "Constructor Used" << endl;
+    }
+    ~stud()
+    {
+        cout << "Destructor Used" << endl;
+    }
+};
+int main()
+{
+    cout << "NAME - SHIVANSH KUSH / UID - 20BCS4505" << endl;
+    stud *S = new stud[6];
+    delete[] S;
+}
