@@ -1,4 +1,4 @@
-/* File Handling In C++ */
+//File Handling In C++
 //* ofstream	: Creates and writes to files
 //* ifstream	: Reads from files
 //* fstream	    : A combination of ofstream and ifstream: creates, reads, and writes to files
