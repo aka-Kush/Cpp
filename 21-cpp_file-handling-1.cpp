@@ -31,26 +31,26 @@ using namespace std;
 int main()
 {
     fstream file;
-    file.open("Hello.txt", ios::out);  // open file in read and write mode
+    file.open("Hello.txt", ios::out); // open file in read and write mode
     file << "Hello class";
-    cout << "the current position of pointer is :" << file.tellg() << endl;  // print the position of the pointer in file
-    file.close();   // close the open file
+    cout << "the current position of pointer is :" << file.tellg() << endl; // print the position of the pointer in file
+    file.close();                                                           // close the open file
 }
 
 //create a file "test.txt" with some text in it before testing it
 #include <iostream>
 #include <fstream>
 using namespace std;
-int main ()
+int main()
 {
     fstream obj;
-    obj.open ("test.txt", ios::in);
+    obj.open("test.txt", ios::in);
     char ch;
     int pos;
-    while(!obj.eof())
-        obj>>ch;
-        pos = obj.tellg();
-        cout<<pos<<"."<<ch<<"\n";
+    while (!obj.eof())
+        obj >> ch;
+    pos = obj.tellg();
+    cout << pos << "." << ch << "\n";
     obj.close();
 }
 
@@ -67,43 +67,41 @@ int main ()
 #include <fstream>
 #include <iostream>
 using namespace std;
-int main ( ) {
- fstream File("hello.txt", ios::in | ios::out );
- File << "Hello world";
- File.seekg(9, ios::beg);
- char F[9];
- File.read(F, 5);
- F[5] = 0;
- cout <<F<< endl;
- File.close();
+int main()
+{
+    fstream File("hello.txt", ios::in | ios::out);
+    File << "Hello world";
+    File.seekg(9, ios::beg);
+    char F[9];
+    File.read(F, 5);
+    F[5] = 0;
+    cout << F << endl;
+    File.close();
 }
 
 //create a file "hello.txt" with some text in it before testing it
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 using namespace std;
 int main()
 {
-    ifstream ifstream_ob;  //Creating an input stream to read the content of a file
+    ifstream ifstream_ob; //Creating an input stream to read the content of a file
 
-    ifstream_ob.open("hello.txt", ios::in);  //Opening a file named country1.txt to read its content
-    cout<<"The first location in the file : " <<ifstream_ob.tellg() << "\n";
+    ifstream_ob.open("hello.txt", ios::in); //Opening a file named country1.txt to read its content
+    cout << "The first location in the file : " << ifstream_ob.tellg() << "\n";
     char ch;
-    cout<<"\nReading the content of file : \n";
+    cout << "\nReading the content of file : \n";
 
-    while(ifstream_ob)  //Read the file until EOF is reached
+    while (ifstream_ob) //Read the file until EOF is reached
         ch = ifstream_ob.get();
-        cout<<ch;
+    cout << ch;
 
-    ifstream_ob.clear();  //Setting the EOF flag off, to allow the access of file again for reading
-    cout<<"\n\nReading the content of file once again : \n";
-    
-    ifstream_ob.seekg(0, ios::beg);  //Taking the get pointer at the zero byte location from the beginning of the file
-    while(ifstream_ob)  //Reading the content of the file again
+    ifstream_ob.clear(); //Setting the EOF flag off, to allow the access of file again for reading
+    cout << "\n\nReading the content of file once again : \n";
+
+    ifstream_ob.seekg(0, ios::beg); //Taking the get pointer at the zero byte location from the beginning of the file
+    while (ifstream_ob)             //Reading the content of the file again
         ch = ifstream_ob.get();
-        cout<<ch;
+    cout << ch;
     return 0;
 }
-
-
-

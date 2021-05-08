@@ -10,7 +10,7 @@
 //* ios::out
 //* ios::binary
 //* ios::ate
-//* ios::app 
+//* ios::app
 //etc...
 
 //Functions to work with the put pointer
@@ -25,16 +25,15 @@
 using namespace std;
 int main()
 {
-	fstream file;
-	file.open("hello.txt", ios::out);  // open file in read and write mode
-	cout<<file.tellp()<<endl;
-	file << "Example of tellp";
-	cout << "the current position of pointer is :" << file.tellp() << endl; // print the position of the pointer in file
-	file<<"Random Access"<<endl;
-	cout<<file.tellp()<<endl;
-	file.close();  // close the open file
+    fstream file;
+    file.open("hello.txt", ios::out); // open file in read and write mode
+    cout << file.tellp() << endl;
+    file << "Example of tellp";
+    cout << "the current position of pointer is :" << file.tellp() << endl; // print the position of the pointer in file
+    file << "Random Access" << endl;
+    cout << file.tellp() << endl;
+    file.close(); // close the open file
 }
-
 
 //* seekp()
 // This function is used to set the location of the put pointer to a
@@ -47,30 +46,30 @@ int main()
 #include <iostream>
 #include <fstream>
 using namespace std;
-int main ()
+int main()
 {
     fstream obj;
-    obj.open ("hello.txt", ios::out);
-    obj<<"Hello World";
+    obj.open("hello.txt", ios::out);
+    obj << "Hello World";
     int pos = 6;
-    obj.seekp(pos-1);
-    obj<<"...And here the text changed";
+    obj.seekp(pos - 1);
+    obj << "...And here the text changed";
     obj.close();
     return 0;
 }
 //output : Hello...And here the text changed
 
 //create a file "hello.txt" before testing it
-#include<iostream>
+#include <iostream>
 #include <fstream>
-int main() 
+int main()
 {
     std::ofstream outfile;
-    outfile.open ("hello.txt"); 
-    outfile.write ("This is an apple",16);
+    outfile.open("hello.txt");
+    outfile.write("This is an apple", 16);
     long pos = outfile.tellp();
-    outfile.seekp (pos-7);
-    outfile.write (" sai",4);
+    outfile.seekp(pos - 7);
+    outfile.write(" sai", 4);
     outfile.close();
     return 0;
 }
@@ -139,27 +138,27 @@ int main()
 using namespace std;
 int main()
 {
-	fstream F;
-	F.open("hello.txt", ios::in | ios::out);  //opening a file in input and output mode
-	cout << F.tellg() << endl;  //getting current location
-	F.seekg(8, ios::beg);  //seeing 8 bytes/characters
-	cout << F.tellg() << endl;  //now, getting the current location
-	char c = F.get();  //extracting one character from current location
-	cout << c << endl;  //printing the character
-	cout << F.tellg() << endl;  //after getting the character, getting current location
-	F.seekg(10, ios::cur);  //now, seeking 10 more bytes/characters
-	cout << F.tellg() << endl;  //now, getting current location
-	c = F.get();  //again, extracing the one character from current location
-	cout << c << endl;  //printing the character
-	cout << F.tellg() << endl;  //after getting the character, getting current location
-	F.seekp(7, ios::beg);  //again, seeking 7 bytes/characters from beginning
-	F.put('Z');  //writting a character 'Z' at current location
-	F.seekg(-7, ios::end);  //now, seeking back 7 bytes/characters from the end 
-	cout << "End:" << F.tellg() << endl;  //now, printing the current location
-	c = F.get();  //extracting one character from current location
-	cout << c << endl;  //printing the character
-	F.close();  //closing the file
-	return 0;
+    fstream F;
+    F.open("hello.txt", ios::in | ios::out); //opening a file in input and output mode
+    cout << F.tellg() << endl;               //getting current location
+    F.seekg(8, ios::beg);                    //seeing 8 bytes/characters
+    cout << F.tellg() << endl;               //now, getting the current location
+    char c = F.get();                        //extracting one character from current location
+    cout << c << endl;                       //printing the character
+    cout << F.tellg() << endl;               //after getting the character, getting current location
+    F.seekg(10, ios::cur);                   //now, seeking 10 more bytes/characters
+    cout << F.tellg() << endl;               //now, getting current location
+    c = F.get();                             //again, extracing the one character from current location
+    cout << c << endl;                       //printing the character
+    cout << F.tellg() << endl;               //after getting the character, getting current location
+    F.seekp(7, ios::beg);                    //again, seeking 7 bytes/characters from beginning
+    F.put('Z');                              //writting a character 'Z' at current location
+    F.seekg(-7, ios::end);                   //now, seeking back 7 bytes/characters from the end
+    cout << "End:" << F.tellg() << endl;     //now, printing the current location
+    c = F.get();                             //extracting one character from current location
+    cout << c << endl;                       //printing the character
+    F.close();                               //closing the file
+    return 0;
 }
 
 //WAP to copy the contents of one file to another and display it on output screen.
@@ -235,21 +234,3 @@ int main()
     file1.close();
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
