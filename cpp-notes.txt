@@ -1,0 +1,259 @@
+What is a Header file?
+A header file is a file which contains function declarations and macro definitions to be shared between several source files. 
+There are two types of header files: the files that the programmer writes and the files that comes with your compiler. 
+
+What is an Access Specifier?
+ Access specifiers define how the members of a class can be accessed.
+Public – Members are accessible from outside the class
+Private – Members cannot be accessed (or viewed) from outside the class
+Protected – Members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
+
+What is a scope resolution operator?
+scope resolution operator is::
+It is used for following purposes:
+    1. To access a global variable when there is a local variable with same name
+    2. To define a function outside a class. 
+    3. Refer to a class inside another class
+
+Class
+Class is a user-defined data type which works as a blueprint or template which contains all the properties from which objects are created. 
+
+Object
+Object is an instance of class. When a class is defined, no memory is allocated but when it’s object is created, memory is allocated. 
+
+Structure
+A Structure is a collection of variables of different data types under a single unit. 
+
+Difference between Class and Structure
+A Class can inherit from another class, A Struct is not allowed to inherit from another struct or class. 
+The data member of a class can be protected, The data member of struct can’t be protected. 
+Class is generally used in large programs, Struct are used in small programs.
+
+Namespace
+A namespace is a declarative region that provides a scope to the identifiers (names of the types, function, variables etc.) inside it. 
+
+Encapsulation
+In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulates them. 
+
+Data abstraction
+It is a mechanism of exposing only the interfaces and hiding the implementation details from the user. 
+    • Abstraction using Classes 
+    • Abstraction in Header files 
+
+
+Polymorphism
+Polymorphism as the ability of a message to be displayed in more than one form.
+    • Compile time polymorphism: This type of polymorphism is achieved by function overloading or operator overloading. 
+    4. Function Overloading: When there are multiple functions with same name but different parameters then these functions are said to be overloaded.
+    5. Operator Overloading: By operator overloading we can modify the default meaning to the operators. For example, we can make the operator (‘+’) for string class to concatenate two strings.  
+            This can further be divided into Overloading Unary Operator, Binary Operator and   	Binary operator overloading using friend function
+
+    • Runtime polymorphism: This type of polymorphism is achieved by Function Overriding. 
+    1. Function overriding: Function overriding occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be overridden. 
+
+
+Function overloading ambiguity When the compiler is unable to decide which function it should invoke first among the overloaded 
+functions.
+
+Message passing
+Objects communicate with one another by sending and receiving information to each other. A message for an object is a request for execution of a procedure and therefore will invoke a function in the receiving object that generates the desired results. Message passing involves specifying the name of the object, the name of the function and the information to be sent. 
+
+
+Inheritance
+The capability of a class to derive properties and characteristics from another class is called Inheritance. 
+Types of Inheritance:
+    • Single Inheritance :  A class is allowed to inherit from only one class 
+    • Multiple Inheritance : A class can inherit from more than one classes 
+    • Multilevel Inheritance :  A derived class is created from another derived class 
+    • Hierarchical Inheritance : More than one derived class is created from a single base class 
+    • Hybrid (Virtual) Inheritance : Hybrid Inheritance is implemented by combining more than one type of inheritance. For example: Combining Hierarchical inheritance and Multiple Inheritance.  
+
+
+
+Problem with Hybrid Inheritance
+The problem with Hybrid Inheritance is it will throw an ambiguity error. For ex,
+D is inherited from B and C which are further inherited from parent class A, therefore D gets 2
+copies of A which causes ambiguity 
+To get rid of this problem we will use virtual base class A, using it B and C will not have different
+copies of A and further D will also have only 1 copy of A
+
+
+
+
+
+Virtual function
+It is a member function in the base class that you redefine in a derived class. A virtual function is declared using the virtual keyword. When the function is made virtual, C++ determines which function is to be invoked at the runtime based on the type of the object pointed by the base class pointer. 
+
+
+
+Dynamic Binding
+In dynamic binding, the code to be executed in response to function call is decided at runtime. C++ has virtual functions to support this.
+
+Pointer
+A pointer refers to a variable that holds the address of another variable. 
+
+Void Pointer
+A void pointer is a pointer which is having no data type associated with it. It can hold addresses of any type. 
+
+This pointer
+Every object in C++ has access to its own address through an important pointer called this pointer. The this pointer is an implicit parameter to all member functions. 
+Only member functions have a this pointer. Therefore Friend functions do not have a this pointer
+
+‘this’ pointer can be used when:
+    • local variable’s name is same as member’s name 
+    • to return reference to the calling object 
+
+
+Static
+Static is a keyword used to give special characteristics to an element. Static elements are allocated storage only once in a program lifetime in static storage area.
+
+Static variable in functions
+Static variables when used inside function are initialized only once, and then they hold there value even through function calls. 
+Static Class Objects
+Objects declared static are allocated storage in static storage area, and have scope till the end of program. 
+Static member Variable in class
+Static data members of class are those members which are shared by all the objects. 
+Static Methods in class
+These functions work for the class as whole rather than for a particular object of a class. 
+
+Objects declared static are allocated storage in static storage area, and have scope till the end of program. 
+
+Why static members don’t have a ‘this’ pointer?
+static member functions are not attached to an object, they have no this pointer 
+
+
+Friend function
+A friend function is not a member of class still can access private, protected and a public member of a class. It is defined outside the scope of a class. 
+
+
+Function call overhead
+This overhead occurs for small functions because execution time of small function is less than the switching time of the control of the program from the calling function to the definition of the called function. 
+
+
+Inline Functions
+An inline function is an optimisation feature that reduces the execution time of a program. Inline functions are commonly used when the function definitions are small, and the functions are called several times in a program.  Inline function is a request to compiler, not a command. 
+It helps avoiding Function call overhead. An inline function is a function that is expanded inline when it is invoked.
+Disadvantage
+After in-lining function if variables number which are going to use register increases than they may create overhead on register variable resource utilization 
+Inline functions can’t be used for any complex code such as a loop.
+
+
+Constructor
+A class constructor is a special member function of a class that is executed whenever we create new objects of that class. 
+The name of constructor will be same as the name of the class, and constructors will never have a return type. 
+Constructors are of 3 types:
+    • Default constructor -  member function without parameters
+    • Parametrized constructor -  member function with parameters
+    • Copy constructor – member function that initializes an object using another object of the same class
+
+Construct Overloading
+Using same name construct but with different argument list
+
+
+Destructors
+Destructor is a special class function which destroys the object as soon as the scope of object ends. The destructor is called automatically by the compiler when the object goes out of scope. 
+the class name is used for the name of destructor, with a tilde (~) sign as prefix to it. 
+
+
+What is the difference between Constructor and Destructor?
+Constructor helps to initialize the object of a class, Whereas destructor is used to destroy the instances.
+Constructor can either accept an arguments or not,  Whereas destructor can’t have any arguments. 
+Constructor can be overloaded, While destructor can’t be overloaded. 
+
+Reference
+A reference is like a pointer. It is another name of an already existing variable. Once a reference name is initialized with a variable, that variable can be accessed by the variable name or reference name both. 
+
+What do you mean by call by value and call by reference?
+In call by value method, we pass a copy of the parameter is passed to the functions. For these copied values a new memory is assigned and changes made to these values do not reflect the variable in the main function.
+In call by reference method, we pass the address of the variable and the address is used to access the actual argument used in the function call. So changes made in the parameter alter the passing argument.
+
+What is an abstract class and when do you use it?
+A class is called an abstract class whose objects can never be created. Such a class exists as a parent for the derived classes. We can make a class abstract by placing a pure virtual function in the class.
+
+Exception handling in C++
+It consist of three keywords: try, throw and catch:
+    • The 'try' statement allows you to define a block of code to be tested for errors while it is 
+    • being executed.
+    • The 'throw' keyword throws an exception when a problem is detected, which lets us create a custom error.
+    • The catch statement allows you to define a block of code to be executed, if an error occurs 
+in the try block.
+
+
+New Operator
+The new operator denotes a request for memory allocation. If sufficient memory is available, new operator initializes the memory and returns the address of the newly allocated and initialized memory to the pointer variable. 
+
+Delete Operator
+Delete Operator is used to deallocate dynamically allocated memory 
+
+
+Dynamic Memory Allocation 
+Dynamic memory allocation  refers to performing memory allocation manually by programmer.
+Dynamically allocated memory is allocated on Heap and non-static and local variables get memory allocated on Stack 
+
+Stack vs Heap
+Stack Memory Allocation
+The memory is allocated on the function call stack. The memory gets deallocated
+As soon as the function call gets over. Deallocation is handled by the compiler.
+
+Heap Memory Allocation
+Allocation takes place on the pile of memory space available to programmers to
+allocated and de-allocate. The programmer has to handle the deallocation.
+
+
+Dangling Pointer
+If the memory location pointed by the pointer gets freed/ deallocated, then the
+pointer is known as the Dangling Pointer.
+
+
+File Handling In C++
+
+ofstream - This data type represents the output file stream and is used to create files and to write information to files.
+Ifstream - This data type represents the input file stream and is used to read information from files
+fstream - This data type represents the file stream generally, and has the capabilities of both ofstream and ifstream which means it can create files, write information to files, and read information from files.
+get pointer
+The get pointer allows us to read the content of a file when we open the file in read-only mode.
+
+tellg()
+Gives us the current location of the get pointer. When the file is opened in a read-only mode, tellg() returns zero i.e. the beginning of the file
+
+seekg()
+This function is used to set the location of the get pointer to a desired position/offset.
+
+
+
+put pointer
+It allows us to write the content to a file, when we open the file in write-only mode
+
+tellp()
+Gives us the current location of the put pointer. When the file is opened in a write only mode, tellp() returns zero i.e. the beginning of the file
+
+seekp()
+This function is used to set the location of the put pointer to a desired position/offset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
