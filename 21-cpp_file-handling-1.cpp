@@ -24,6 +24,7 @@
 // Gives us the current location of the get pointer. When the file is opened in a read-only mode, tellg() returns zero i.e. the beginning
 // of the file
 
+//create a file "Hello.txt" before testing it
 #include <iostream>
 #include <fstream>
 using namespace std;
